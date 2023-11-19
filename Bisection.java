@@ -8,9 +8,9 @@ public class Bisection {
    private double fc;
    private double error;
    private double epsilon;
-   private Function f;
+   private MathFunction f;
 
-   public Bisection(Function f, double a, double b, int nmax, double epsilon) {
+   public Bisection(MathFunction f, double a, double b, int nmax, double epsilon) {
       this.f = f;
       this.a = a;
       this.b = b;

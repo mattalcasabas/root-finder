@@ -1,6 +1,6 @@
 public class NewtonRaphson {
-   private Function f;
-   private Function fPrime;
+   private MathFunction f;
+   private MathFunction fPrime;
    private int nmax;
    private double x;
    private double fx;
@@ -8,7 +8,7 @@ public class NewtonRaphson {
    private double epsilon;
    private double delta;
 
-   public NewtonRaphson(Function f, Function fPrime, double x, int nmax, double epsilon, double delta) {
+   public NewtonRaphson(MathFunction f, MathFunction fPrime, double x, int nmax, double epsilon, double delta) {
       this.f = f;
       this.fPrime = fPrime;
       this.x = x;

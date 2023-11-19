@@ -1,5 +1,5 @@
 public class Secant {
-   private Function f;
+   private MathFunction f;
    private int nmax;
    private double a;
    private double b;
@@ -8,7 +8,7 @@ public class Secant {
    private double epsilon;
    private double d;
 
-   public Secant(Function f, double a, double b, int nmax, double epsilon) {
+   public Secant(MathFunction f, double a, double b, int nmax, double epsilon) {
       this.f = f;
       this.a = a;
       this.b = b;
