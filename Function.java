@@ -38,7 +38,7 @@ public class Function implements MathFunction {
             double derivativeA = 3 * this.a;
             double derivativeB = 2 * this.b;
             double derivativeC = this.c;
-            return new Function(derivativeA, derivativeB, derivativeC, 0);
+            return new Function(0, derivativeA, derivativeB, derivativeC);
         } else {
             // Custom function derivative
             return new CustomFunctionDerivative();
@@ -49,7 +49,7 @@ public class Function implements MathFunction {
         @Override
         public double evaluate(double x) {
             // Derivative calculation for the custom function
-            return -Math.cosh(50 / x) + Math.sinh(50 / x) * (50 / x) * x;
+            return ((50 * Math.sinh(50 / x)) / x) - Math.cosh(50 / x) + 1;
         }
 
         @Override
