@@ -27,8 +27,7 @@ public class Bisection {
       }
       this.error = this.b - this.a;
       for (int n = 0; n < this.nmax; n++) {
-         this.error = this.error / 2;
-         this.c = this.a + this.error;
+         this.c = (this.a * this.fb - this.b * this.fa) / (this.fb - this.fa);
          this.fc = this.f.evaluate(c);
          System.out.printf("n = %d\tc = %.4f\tfc = %.4f\terror = %.4f\n", n, c, fc, error);
          if (Math.abs(error) < this.epsilon) {
@@ -42,6 +41,7 @@ public class Bisection {
             this.a = this.c;
             this.fa = this.fc;
          }
+         this.error = this.b - this.a;
       }
    }
 
