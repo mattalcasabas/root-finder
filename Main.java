@@ -9,7 +9,7 @@ public class Main {
       FalsePosition fpA = new FalsePosition(f, 0, 4, nmax, epsilon);
       Secant scA = new Secant(f, 0, 4, nmax, epsilon);
 
-      System.out.println("Function 1:\n");
+      System.out.println("Function 1:");
       System.out.println("Bisection method:");
       bsA.solve();
       System.out.println("Newton-Raphson method:");
@@ -19,7 +19,9 @@ public class Main {
       System.out.println("False position method:");
       fpA.solve();
 
-      System.out.println("Function 2:\n");
+      System.out.println("=============================");
+
+      System.out.println("Function 2:");
       Bisection bsB = new Bisection(f2, 120, 130, nmax, epsilon);
       NewtonRaphson nrB = new NewtonRaphson(f2, f2.findDerivative(), 1, nmax, epsilon, 0.00001);
       Secant scB = new Secant(f2, 120, 130, nmax, epsilon);
@@ -32,6 +34,5 @@ public class Main {
       scB.solve();
       System.out.println("False position method:");
       fpB.solve();
-
    }
 }
