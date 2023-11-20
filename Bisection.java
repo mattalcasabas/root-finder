@@ -26,11 +26,13 @@ public class Bisection {
          return;
       }
       this.error = this.b - this.a;
+      System.out.printf("n\tc\t\tfc\terror");
+      System.out.printf("\n=======================================================\n");
       for (int n = 0; n < this.nmax; n++) {
          this.error = this.error / 2;
          this.c = this.a + this.error;
          this.fc = this.f.evaluate(c);
-         System.out.printf("n = %d\tc = %.4f\tfc = %.4f\terror = %.4f\n", n, c, fc, error);
+         System.out.printf("%d\t%.4f\t%.4f\t%.4f\n", n, c, fc, error);
          if (Math.abs(error) < this.epsilon) {
             System.out.println("Convergence");
             return;

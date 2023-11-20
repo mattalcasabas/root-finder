@@ -19,6 +19,8 @@ public class Secant {
    public void solve() {
       this.fa = this.f.evaluate(a);
       this.fb = this.f.evaluate(b);
+      System.out.printf("n\ta\t\tfa\t");
+      System.out.printf("\n=======================================================\n");
 
       if (fa * fb > 0) {
          double temp = a;
@@ -29,8 +31,8 @@ public class Secant {
          fb = temp;
       }
 
-      System.out.printf("n = 0\ta = %.4f\tfa = %.4f\n", a, fa);
-      System.out.printf("n = 1\tb = %.4f\tfb = %.4f\n", b, fb);
+      System.out.printf("0\t%.4f\t%.4f\n", a, fa);
+      System.out.printf("1\t%.4f\t%.4f\n", b, fb);
 
       for (int n = 2; n < nmax; n++) {
          if (fa * fb > 0) {
@@ -54,7 +56,7 @@ public class Secant {
 
          a = a - d;
          fa = this.f.evaluate(a);
-         System.out.printf("n = %d\ta = %.4f\tfa = %.4f\n", n, a, fa);
+         System.out.printf("%d\t%.4f\t%.4f\n", n, a, fa);
       }
    }
 }

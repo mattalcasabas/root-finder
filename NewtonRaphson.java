@@ -19,7 +19,9 @@ public class NewtonRaphson {
 
    public void solve() {
       this.fx = this.f.evaluate(x);
-      System.out.printf("n = 0\tx = %.4f\tfx = %.4f\n", x, fx);
+      System.out.printf("n\tx\t\tfx\t");
+      System.out.printf("\n=======================================================\n");
+      System.out.printf("0\t%.4f\t%.4f\n", x, fx);
 
       for (int n = 1; n < nmax; n++) {
          this.fp = this.fPrime.evaluate(x);
@@ -31,7 +33,7 @@ public class NewtonRaphson {
          double d = this.fx / this.fp;
          this.x = x - d;
          this.fx = this.f.evaluate(x);
-         System.out.printf("n = %d\tx = %.4f\tfx = %.4f\n", n, x, fx);
+         System.out.printf("%d\t%.4f\t%.4f\n", n, x, fx);
          if (Math.abs(d) < epsilon) {
             System.out.println("Convergence.");
             return;
