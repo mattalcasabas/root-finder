@@ -26,12 +26,12 @@ public class FalsePosition {
          return;
       }
       this.error = this.b - this.a;
-      System.out.printf("n\tc\t\tfc\terror");
-      System.out.printf("\n=======================================================\n");
+      System.out.printf("%-5s%-18s%-12s%-10s\n", "n", "c", "fc", "error");
+      System.out.printf("=======================================================\n");
       for (int n = 0; n < this.nmax; n++) {
          this.c = (this.a * this.fb - this.b * this.fa) / (this.fb - this.fa);
          this.fc = this.f.evaluate(c);
-         System.out.printf("%d\t%.4f\t%.4f\t%.4f\n", n, c, fc, error);
+         System.out.printf("%-5d%-18.4f%-12.4f%-10.4f\n", n, c, fc, error);
          if (Math.abs(error) < this.epsilon) {
             System.out.println("Convergence");
             return;
