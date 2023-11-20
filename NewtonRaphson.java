@@ -17,11 +17,35 @@ public class NewtonRaphson {
       this.delta = delta;
    }
 
+   // public void solve() {
+   // this.fx = this.f.evaluate(x);
+   // System.out.printf("%-5s%-18s%-12s\n", "n", "x", "fx");
+   // System.out.printf("=======================================================\n");
+   // System.out.printf("%-5s%-18.4f%-12.4f\n", "0", x, fx);
+
+   // for (int n = 1; n < nmax; n++) {
+   // this.fp = this.fPrime.evaluate(x);
+   // if (Math.abs(fp) < delta) {
+   // System.out.println("Small derivative.");
+   // return;
+   // }
+
+   // double d = this.fx / this.fp;
+   // this.x = x - d;
+   // this.fx = this.f.evaluate(x);
+   // System.out.printf("%-5d%-18.4f%-12.4f\n", n, x, fx);
+   // if (Math.abs(d) < epsilon) {
+   // System.out.println("Convergence.");
+   // return;
+   // }
+   // }
+   // }
+
    public void solve() {
       this.fx = this.f.evaluate(x);
-      System.out.printf("%-5s%-18s%-12s\n", "n", "x", "fx");
+      System.out.printf("%-5s%-18s%-12s%-12s\n", "n", "x", "fx", "error");
       System.out.printf("=======================================================\n");
-      System.out.printf("%-5s%-18.4f%-12.4f\n", "0", x, fx);
+      System.out.printf("%-5s%-18.4f%-12.4f%-12s\n", "0", x, fx, "-");
 
       for (int n = 1; n < nmax; n++) {
          this.fp = this.fPrime.evaluate(x);
@@ -31,10 +55,14 @@ public class NewtonRaphson {
          }
 
          double d = this.fx / this.fp;
+         double prevX = x;
          this.x = x - d;
          this.fx = this.f.evaluate(x);
-         System.out.printf("%-5d%-18.4f%-12.4f\n", n, x, fx);
-         if (Math.abs(d) < epsilon) {
+
+         double error = Math.abs(x - prevX);
+         System.out.printf("%-5d%-18.4f%-12.4f%-12.4f\n", n, x, fx, error);
+
+         if (error < epsilon) {
             System.out.println("Convergence.");
             return;
          }
